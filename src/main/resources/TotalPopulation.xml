@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wb:data page="1" pages="16" per_page="50" total="798" sourceid="2" sourcename="World Development Indicators" lastupdated="2022-09-16" xmlns:wb="http://www.worldbank.org">
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="ZH">Africa Eastern and Southern</wb:country>
+        <wb:countryiso3code>AFE</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>677243299</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="ZH">Africa Eastern and Southern</wb:country>
+        <wb:countryiso3code>AFE</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>660046272</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="ZH">Africa Eastern and Southern</wb:country>
+        <wb:countryiso3code>AFE</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>643090131</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="ZI">Africa Western and Central</wb:country>
+        <wb:countryiso3code>AFW</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>458803476</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="ZI">Africa Western and Central</wb:country>
+        <wb:countryiso3code>AFW</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>446911598</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="ZI">Africa Western and Central</wb:country>
+        <wb:countryiso3code>AFW</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>435229381</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="1A">Arab World</wb:country>
+        <wb:countryiso3code>ARB</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>436080728</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="1A">Arab World</wb:country>
+        <wb:countryiso3code>ARB</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>427870273</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="1A">Arab World</wb:country>
+        <wb:countryiso3code>ARB</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>419851989</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="S3">Caribbean small states</wb:country>
+        <wb:countryiso3code>CSS</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>7442291</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="S3">Caribbean small states</wb:country>
+        <wb:countryiso3code>CSS</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>7401389</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="S3">Caribbean small states</wb:country>
+        <wb:countryiso3code>CSS</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>7358929</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="B8">Central Europe and the Baltics</wb:country>
+        <wb:countryiso3code>CEB</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>102172351</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="B8">Central Europe and the Baltics</wb:country>
+        <wb:countryiso3code>CEB</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>102398494</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="B8">Central Europe and the Baltics</wb:country>
+        <wb:countryiso3code>CEB</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>102538451</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="V2">Early-demographic dividend</wb:country>
+        <wb:countryiso3code>EAR</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>3332103561</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="V2">Early-demographic dividend</wb:country>
+        <wb:countryiso3code>EAR</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>3290291029</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="V2">Early-demographic dividend</wb:country>
+        <wb:countryiso3code>EAR</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>3248413593</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="Z4">East Asia &amp; Pacific</wb:country>
+        <wb:countryiso3code>EAS</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>2361517682</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="Z4">East Asia &amp; Pacific</wb:country>
+        <wb:countryiso3code>EAS</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>2351127942</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="Z4">East Asia &amp; Pacific</wb:country>
+        <wb:countryiso3code>EAS</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>2338485387</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="4E">East Asia &amp; Pacific (excluding high income)</wb:country>
+        <wb:countryiso3code>EAP</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>2114009483</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="4E">East Asia &amp; Pacific (excluding high income)</wb:country>
+        <wb:countryiso3code>EAP</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>2103723076</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="4E">East Asia &amp; Pacific (excluding high income)</wb:country>
+        <wb:countryiso3code>EAP</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>2091698238</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="T4">East Asia &amp; Pacific (IDA &amp; IBRD countries)</wb:country>
+        <wb:countryiso3code>TEA</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>2088186305</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="T4">East Asia &amp; Pacific (IDA &amp; IBRD countries)</wb:country>
+        <wb:countryiso3code>TEA</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>2078012370</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="T4">East Asia &amp; Pacific (IDA &amp; IBRD countries)</wb:country>
+        <wb:countryiso3code>TEA</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>2066103849</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XC">Euro area</wb:country>
+        <wb:countryiso3code>EMU</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>342708355</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XC">Euro area</wb:country>
+        <wb:countryiso3code>EMU</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>342283354</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XC">Euro area</wb:country>
+        <wb:countryiso3code>EMU</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>341979171</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="Z7">Europe &amp; Central Asia</wb:country>
+        <wb:countryiso3code>ECS</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>922976036</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="Z7">Europe &amp; Central Asia</wb:country>
+        <wb:countryiso3code>ECS</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>920807612</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="Z7">Europe &amp; Central Asia</wb:country>
+        <wb:countryiso3code>ECS</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>918031055</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="7E">Europe &amp; Central Asia (excluding high income)</wb:country>
+        <wb:countryiso3code>ECA</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>400895993</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="7E">Europe &amp; Central Asia (excluding high income)</wb:country>
+        <wb:countryiso3code>ECA</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>399386100</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="7E">Europe &amp; Central Asia (excluding high income)</wb:country>
+        <wb:countryiso3code>ECA</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>397406103</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="T7">Europe &amp; Central Asia (IDA &amp; IBRD countries)</wb:country>
+        <wb:countryiso3code>TEC</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>462100263</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="T7">Europe &amp; Central Asia (IDA &amp; IBRD countries)</wb:country>
+        <wb:countryiso3code>TEC</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>460788476</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="T7">Europe &amp; Central Asia (IDA &amp; IBRD countries)</wb:country>
+        <wb:countryiso3code>TEC</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>458942666</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="EU">European Union</wb:country>
+        <wb:countryiso3code>EUU</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>447479493</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="EU">European Union</wb:country>
+        <wb:countryiso3code>EUU</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>447197811</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="EU">European Union</wb:country>
+        <wb:countryiso3code>EUU</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>446915113</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="F1">Fragile and conflict affected situations</wb:country>
+        <wb:countryiso3code>FCS</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>960960554</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="F1">Fragile and conflict affected situations</wb:country>
+        <wb:countryiso3code>FCS</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>940026046</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="F1">Fragile and conflict affected situations</wb:country>
+        <wb:countryiso3code>FCS</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>920103533</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XE">Heavily indebted poor countries (HIPC)</wb:country>
+        <wb:countryiso3code>HPC</wb:countryiso3code>
+        <wb:date>2020</wb:date>
+        <wb:value>823480038</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XE">Heavily indebted poor countries (HIPC)</wb:country>
+        <wb:countryiso3code>HPC</wb:countryiso3code>
+        <wb:date>2019</wb:date>
+        <wb:value>801708019</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XE">Heavily indebted poor countries (HIPC)</wb:country>
+        <wb:countryiso3code>HPC</wb:countryiso3code>
+        <wb:date>2018</wb:date>
+        <wb:value>780234453</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XD">High income</wb:country>
+        <wb:countryiso3code />
+        <wb:date>2020</wb:date>
+        <wb:value>1240684527</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+    <wb:data>
+        <wb:indicator id="SP.POP.TOTL">Population, total</wb:indicator>
+        <wb:country id="XD">High income</wb:country>
+        <wb:countryiso3code />
+        <wb:date>2019</wb:date>
+        <wb:value>1234830048</wb:value>
+        <wb:unit />
+        <wb:obs_status />
+        <wb:decimal>0</wb:decimal>
+    </wb:data>
+</wb:data>
+
