@@ -1,6 +1,5 @@
 package com.yorku.wbapp.model;
 
-import com.yorku.wbapp.analysis.AnalysisIndicator;
 
 import java.util.Objects;
 //Class is used to define a single record of data

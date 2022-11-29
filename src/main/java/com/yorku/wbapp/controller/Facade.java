@@ -1,13 +1,8 @@
 package com.yorku.wbapp.controller;
 
-import com.yorku.wbapp.analysis.AnalysisStrategy;
-import com.yorku.wbapp.analysis.BaseAnalysis;
-import com.yorku.wbapp.analysis.AnalysisConstants;
-import com.yorku.wbapp.analysis.ConcreteClasses.AnalysisOne;
-import com.yorku.wbapp.datainteraction.DataManager;
+import com.yorku.wbapp.controller.datainteraction.DataManager;
 import com.yorku.wbapp.model.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -30,34 +25,6 @@ public class Facade {
         }
     }
 
-    public static void main(String[] args) {
-        Facade facade = new Facade();
-        FilterCriteria fc = new FilterCriteria("IN", 2011, 2014, AnalysisConstants.CO2_ANALYSIS);
-        WBData co2Data = facade.getFilterCountryData(fc);
-        printData("CO2", co2Data);
-
-        fc = new FilterCriteria("IN", 2011, 2014, AnalysisConstants.ENERGY_USE_ANALYSIS);
-        WBData energyUseData = facade.getFilterCountryData(fc);
-        printData("Energy use", energyUseData);
-
-        fc = new FilterCriteria("IN", 2011, 2014, AnalysisConstants.PM25_AIR_POLLUTION);
-        WBData airPollutionData = facade.getFilterCountryData(fc);
-
-        printData("AIR POLLUTION", airPollutionData);
-
-        AnalysisStrategy analysisOne = new AnalysisOne("Analysis One");
-        Map<String, WBData> wbDataMap = new HashMap<>();
-        wbDataMap.put(AnalysisConstants.CO2_ANALYSIS, co2Data);
-        wbDataMap.put(AnalysisConstants.ENERGY_USE_ANALYSIS, energyUseData);
-        wbDataMap.put(AnalysisConstants.PM25_AIR_POLLUTION, airPollutionData);
-
-        Map<String, WBData> analyzedDataMap = analysisOne.analyse(wbDataMap);
-        printAnalyzedData("CO2 ANNUAL_PERCENT_CHANGE", analyzedDataMap.get(AnalysisConstants.CO2_ANALYSIS));
-        printAnalyzedData("Energy use ANNUAL_PERCENT_CHANGE ", analyzedDataMap.get(AnalysisConstants.ENERGY_USE_ANALYSIS));
-        printAnalyzedData("Air Pollution ANNUAL_PERCENT_CHANGE ", analyzedDataMap.get(AnalysisConstants.PM25_AIR_POLLUTION));
-
-    }
-
     public Vector<String> getCountries() {
 
         return countriesNames;
@@ -67,14 +34,10 @@ public class Facade {
         return wbData;
     }
 
-    //get an object of all data records that match the filter criteria
-    public WBData getFilterCountryData(FilterCriteria filterCriteria) {
-        DataManager dataManager = new DataManager();
-        filteredWBData = dataManager.getCountryWBData(filterCriteria);
-
-        return filteredWBData;
+    public Map<String, WBData> performAnalysis(FilterCriteria filterCriteria, String analysisName){
+        AnalysisControllerIF analysisController = new AnalysisController();
+        return analysisController.performAnalysis(filterCriteria, analysisName);
     }
-
 
     private static void printAnalyzedData(String type, WBData analyzedCO2Data) {
         System.out.println("===="+type+"====");
