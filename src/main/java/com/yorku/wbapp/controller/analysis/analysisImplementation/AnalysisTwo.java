@@ -9,7 +9,7 @@ import com.yorku.wbapp.model.WBData;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ForestAreaAirPollutionPercentChange extends AnalysisStrategy {
+public class AnalysisTwo extends AnalysisStrategy {
 
     @Override
     public Map<String, WBData> analyse(FilterCriteria filterCriteria) {
@@ -46,7 +46,7 @@ public class ForestAreaAirPollutionPercentChange extends AnalysisStrategy {
         return analyzedData;
     }
 
-    public ForestAreaAirPollutionPercentChange(String analysisName) {
+    public AnalysisTwo(String analysisName) {
         super(analysisName);
     }
 

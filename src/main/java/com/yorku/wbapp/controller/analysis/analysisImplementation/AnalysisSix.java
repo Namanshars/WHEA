@@ -10,6 +10,9 @@ import java.util.*;
 
 
 public class AnalysisSix extends AnalysisStrategy{
+    public AnalysisSix(String analysisName) {
+        super(analysisName);
+    }
     @Override
     public Map<String, WBData> analyse(FilterCriteria filterCriteria) {
         //get the data based on FilterCriteria - country and year range
@@ -45,9 +48,7 @@ public class AnalysisSix extends AnalysisStrategy{
         return analyzedData;
     }
 
-    public AnalysisSix(String analysisName) {
-		super(analysisName);
-	}
+
 
 	/*
 	 public Map<String, WBData> analyseX(Map<String, WBData> wb) {

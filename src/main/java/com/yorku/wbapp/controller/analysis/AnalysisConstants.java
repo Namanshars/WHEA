@@ -4,14 +4,14 @@ public class AnalysisConstants {
 
     //Declare the name of all analysis here so that they can be passed around whenever needed
     //This helps to reduce the possibilities of spelling errors in our code
-    public static final String CO2EnergyUseAirPollutionPercentChange = "CO2 vs EnergyUse vs AirPollution Annual Percent Change";
-    public static final String ForestAreaAirPollutionPercentChange = "Forest Area vs Air Pollution Annual Percent Change";
-    public static final String ForestAreaAverage = "Forest Area Average";
-    public static final String ANALYSIS_THREE = "ANALYSIS THREE";
-    public static final String ANALYSIS_FIVE = "ANALYSIS FIVE";
-    public static final String ANALYSIS_SIX = "ANALYSIS SIX";
-    public static final String ANALYSIS_SEVEN = "ANALYSIS SEVEN";
-    public static final String ANALYSIS_EIGHT = "ANALYSIS EIGHT";
+    public static final String ANALYSIS_ONE = "CO2 vs EnergyUse vs AirPollution Annual Percent Change";
+    public static final String ANALYSIS_TWO = "Forest Area vs Air Pollution Annual Percent Change";
+    public static final String ANALYSIS_FOUR = "Forest Area Average";
+    public static final String ANALYSIS_THREE = "C02 vs GDP Ratio";
+    public static final String ANALYSIS_FIVE = "Government expenditure on education Average";
+    public static final String ANALYSIS_SIX = "Current health expenditure vs Hospital Beds Ratio";
+    public static final String ANALYSIS_SEVEN = "Problems in accessing health care vs Mortality rate, infant";
+    public static final String ANALYSIS_EIGHT = "Mortality rate, infant vs Current health expenditure";
 
 
     public static final String CO2_ANALYSIS = "EN.ATM.CO2E.PC";
@@ -25,12 +25,13 @@ public class AnalysisConstants {
     //todo - below needs to be corrected - using % of GDP for now - need to implement per 1000 people
     final public static String HEALTH_EXP = "SH.XPD.CHEX.GD.ZS";
 
-    final public static String PROBLEMS_ACCESSING = "SH.ACS.WHER.Q5.ZS";
-    final public static String MORTALITY_INFANTS = "SH.DYN.MORT";
+    final public static String PROBLEMS_ACCESSING = "SH.ACS.WHER.Q1.ZS";
+    final public static String MORTALITY_INFANTS = "SH.DYN.MORT.Q4";
 
     public static final String ANNUAL_PERCENT_CHANGE = "ANNUAL_PERCENT_CHANGE";
     public static final String RATIO = "RATIO";
     public static final String AVERAGE = "AVERAGE";
+    public static final String NONE = "NONE";
 
 
 }

@@ -10,14 +10,14 @@ public class AnalysisFactory {
 
         //Use factory pattern to create AnalysisStrategy objects based off the name of the chosen analysis
         AnalysisStrategy concreteClass = null;
-        if (aType.equals(AnalysisConstants.CO2EnergyUseAirPollutionPercentChange)){
-            concreteClass = new CO2EnergyUseAirPollutionPercentChange(AnalysisConstants.CO2EnergyUseAirPollutionPercentChange);
-        }else if (aType.equals(AnalysisConstants.ForestAreaAirPollutionPercentChange)) {
-            concreteClass = new ForestAreaAirPollutionPercentChange(AnalysisConstants.ForestAreaAirPollutionPercentChange);
+        if (aType.equals(AnalysisConstants.ANALYSIS_ONE)){
+            concreteClass = new AnalysisOne(AnalysisConstants.ANALYSIS_ONE);
+        }else if (aType.equals(AnalysisConstants.ANALYSIS_TWO)) {
+            concreteClass = new AnalysisTwo(AnalysisConstants.ANALYSIS_TWO);
         }else if (aType.equals(AnalysisConstants.ANALYSIS_THREE)) {
                 concreteClass = new AnalysisThree(AnalysisConstants.ANALYSIS_THREE);
-        }else if (aType.equals(AnalysisConstants.ForestAreaAverage)) {
-            concreteClass = new ForestAreaAverage(AnalysisConstants.ForestAreaAverage);
+        }else if (aType.equals(AnalysisConstants.ANALYSIS_FOUR)) {
+            concreteClass = new AnalysisFour(AnalysisConstants.ANALYSIS_FOUR);
         }else if (aType.equals(AnalysisConstants.ANALYSIS_FIVE)) {
             concreteClass = new AnalysisFive(AnalysisConstants.ANALYSIS_FIVE);
         }else if (aType.equals(AnalysisConstants.ANALYSIS_SIX)) {

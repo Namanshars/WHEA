@@ -50,7 +50,7 @@ public class JSONParser {
                 //populationForYear = jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsInt();
                 String popForYear = jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsString();
 
-                System.out.println("Population for : " + year + " is " + populationForYear);
+                //System.out.println("Population for : " + year + " is " + populationForYear);
                 cummulativePopulation = cummulativePopulation + populationForYear;
 
                 //Create a WBDataRecord object called record

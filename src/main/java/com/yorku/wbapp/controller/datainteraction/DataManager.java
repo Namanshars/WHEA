@@ -45,19 +45,15 @@ public class DataManager{
 
 
     public Countries getCountriesList() {
-        RestApiClient restApiClient = new RestApiClient();
-        FilterCriteria fc = new FilterCriteria("India", 2018, 2020, "AG.LND.FRST.ZS");
-        try {
-            String countriesJSON = RestApiClient.getWBDataJSON(fc);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         //todo: remove below hardcoding and get the ParseXML to parse the above countriesJSON
         Country country1 = new Country("1", "USA", "US", true);
-        Country country2 = new Country("2", "Canada", "CAN", true);
+        Country country2 = new Country("2", "NZ", "NZ", true);
+        Country country3 = new Country("3", "IND", "IND", true);
         List<Country> countriesList = new ArrayList<>();
         countriesList.add(country1);
         countriesList.add(country2);
+        countriesList.add(country3);
 
         Countries countries = new Countries(countriesList);
 

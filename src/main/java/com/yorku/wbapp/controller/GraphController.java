@@ -13,16 +13,40 @@ public class GraphController {
 
     public List<String> getSuitableGraphs(String analysisType) {
         List<String> suitableGraphs = new ArrayList<>();
-        if(analysisType.equals(AnalysisConstants.CO2EnergyUseAirPollutionPercentChange)) {
+        if(analysisType.equals(AnalysisConstants.ANALYSIS_ONE)) {
             suitableGraphs.add(VisualConstants.BAR);
             suitableGraphs.add(VisualConstants.LINE);
             suitableGraphs.add(VisualConstants.SCATTER);
             suitableGraphs.add(VisualConstants.REPORT);
-        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_FIVE)) {
-            suitableGraphs.add(VisualConstants.PIE);
-        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_EIGHT)) {
+        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_TWO)) {
+            suitableGraphs.add(VisualConstants.BAR);
             suitableGraphs.add(VisualConstants.LINE);
             suitableGraphs.add(VisualConstants.SCATTER);
+            suitableGraphs.add(VisualConstants.REPORT);
+        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_THREE)) {
+            suitableGraphs.add(VisualConstants.BAR);
+            suitableGraphs.add(VisualConstants.LINE);
+            suitableGraphs.add(VisualConstants.SCATTER);
+            suitableGraphs.add(VisualConstants.REPORT);
+        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_FOUR)) {
+            suitableGraphs.add(VisualConstants.PIE);
+            suitableGraphs.add(VisualConstants.REPORT);
+        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_FIVE)) {
+            suitableGraphs.add(VisualConstants.PIE);
+            suitableGraphs.add(VisualConstants.REPORT);
+        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_SIX)) {
+            suitableGraphs.add(VisualConstants.BAR);
+            suitableGraphs.add(VisualConstants.LINE);
+            suitableGraphs.add(VisualConstants.SCATTER);
+            suitableGraphs.add(VisualConstants.REPORT);
+        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_SEVEN)) {
+            suitableGraphs.add(VisualConstants.PIE);
+            suitableGraphs.add(VisualConstants.REPORT);
+        }else if(analysisType.equals(AnalysisConstants.ANALYSIS_EIGHT)) {
+            suitableGraphs.add(VisualConstants.BAR);
+            suitableGraphs.add(VisualConstants.LINE);
+            suitableGraphs.add(VisualConstants.SCATTER);
+            suitableGraphs.add(VisualConstants.REPORT);
         }
         return suitableGraphs;
     }
@@ -40,9 +64,10 @@ public class GraphController {
     }
 
     public void createVisuals(JPanel west, Map<String, WBData> analyzedDataMapOne, Map<String, WBData> analyzedDataMapTwo, String analysisType, List<String> selectedGraphs){
-
+        System.out.println("createVisuals()");
         List<String> suitableGraphs = getSuitableGraphs(analysisType);
         List<String> applicableGraphs = getGraphs(selectedGraphs, suitableGraphs);
+        System.out.println("applicableGraphs: "+applicableGraphs);
 
         for(String graphName: applicableGraphs){
             if (graphName.equals(VisualConstants.BAR)){

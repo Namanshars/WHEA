@@ -9,13 +9,12 @@ import com.yorku.wbapp.model.WBData;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ForestAreaAverage extends AnalysisStrategy {
+public class AnalysisFour extends AnalysisStrategy {
     @Override
     public Map<String, WBData> analyse(FilterCriteria filterCriteria) {
         //get the data based on FilterCriteria - country and year range
         FilterCriteria fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear(), filterCriteria.getToYear(), AnalysisConstants.FOREST_AREA);
         WBData data = getFilterWBData(fc);
-
 
         Map<String, WBData> forestAreaData = new HashMap<>();
         forestAreaData.put(AnalysisConstants.FOREST_AREA, data);
@@ -30,7 +29,7 @@ public class ForestAreaAverage extends AnalysisStrategy {
         return analyzedData;
     }
 
-    public ForestAreaAverage(String analysisName) {
+    public AnalysisFour(String analysisName) {
         super(analysisName);
     }
 

@@ -30,6 +30,13 @@
             <artifactId>jfreechart</artifactId>
             <version>1.5.3</version>
         </dependency>
+        <!-- figure this dependency out -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.31</version>
+        </dependency>
+
 
         <!--dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

@@ -9,9 +9,9 @@ import com.yorku.wbapp.model.WBData;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CO2EnergyUseAirPollutionPercentChange extends AnalysisStrategy {
+public class AnalysisOne extends AnalysisStrategy {
 
-    public CO2EnergyUseAirPollutionPercentChange(String analysisName) {
+    public AnalysisOne(String analysisName) {
 
         super(analysisName);
     }
@@ -53,14 +53,13 @@ public class CO2EnergyUseAirPollutionPercentChange extends AnalysisStrategy {
         airPollutionDataMap.put(AnalysisConstants.PM25_AIR_POLLUTION, dataHashMap.get(AnalysisConstants.PM25_AIR_POLLUTION));
 
         //Perform calculation on each data object
+        //Analyze data and create new WBData to hold it
         WBData analyzedCO2Data = calculationManager.doCalculation(co2DataMap, AnalysisConstants.ANNUAL_PERCENT_CHANGE);
-        printAnalyzedData("CO2 ANNUAL_PERCENT_CHANGE", analyzedCO2Data);
-        //Analyze data and create new WBData to hold it
+        //printAnalyzedData("CO2 ANNUAL_PERCENT_CHANGE", analyzedCO2Data);
         WBData analyzedEnergyUseData = calculationManager.doCalculation(energyUseDataMap, AnalysisConstants.ANNUAL_PERCENT_CHANGE);
-        printAnalyzedData("Energy use ANNUAL_PERCENT_CHANGE ", analyzedEnergyUseData);
-        //Analyze data and create new WBData to hold it
+        //printAnalyzedData("Energy use ANNUAL_PERCENT_CHANGE ", analyzedEnergyUseData);
         WBData analyzedPM25 = calculationManager.doCalculation(airPollutionDataMap, AnalysisConstants.ANNUAL_PERCENT_CHANGE);
-        printAnalyzedData("Energy use ANNUAL_PERCENT_CHANGE ", analyzedEnergyUseData);
+        //printAnalyzedData("Energy use ANNUAL_PERCENT_CHANGE ", analyzedEnergyUseData);
 
         //return new map that holds all the analyzed data for each indicator
         Map<String, WBData> analyzedData = new HashMap<>();

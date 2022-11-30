@@ -31,12 +31,14 @@ public abstract class AnalysisStrategy {
     }
 
     public static void printAnalyzedData(String type, WBData analyzedCO2Data) {
+        /*
         System.out.println("===="+type+"====");
         List<WBDataRecord> analyzedRecords = analyzedCO2Data.getRecords();
         for(WBDataRecord record: analyzedRecords){
             System.out.println("FrontendManager: "+record.toString());
         }
         System.out.println("calculated value = "+ analyzedCO2Data.getCalculatedValue()+"/n");
+         */
     }
 
     public static void printData(String str, WBData co2Data) {

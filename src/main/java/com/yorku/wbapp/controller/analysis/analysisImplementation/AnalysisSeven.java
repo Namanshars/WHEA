@@ -32,9 +32,9 @@ public class AnalysisSeven extends AnalysisStrategy{
         dataTwoMap.put(AnalysisConstants.MORTALITY_INFANTS, wb.get(AnalysisConstants.MORTALITY_INFANTS));
 
         //Analyze data and create new WBData to hold it
-        WBData analyzedDataOne = calculationManager.doCalculation(dataOneMap, AnalysisConstants.ANNUAL_PERCENT_CHANGE);
+        WBData analyzedDataOne = calculationManager.doCalculation(dataOneMap, AnalysisConstants.NONE);
         printAnalyzedData(" ", analyzedDataOne);
-        WBData analyzedDataTwo = calculationManager.doCalculation(dataTwoMap, AnalysisConstants.ANNUAL_PERCENT_CHANGE);
+        WBData analyzedDataTwo = calculationManager.doCalculation(dataTwoMap, AnalysisConstants.NONE);
         printAnalyzedData(" ", analyzedDataTwo);
         //Analyze data and create new WBData to hold it
         //return new map that associates name of indicator with the analyzed data

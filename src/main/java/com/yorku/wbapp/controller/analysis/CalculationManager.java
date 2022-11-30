@@ -1,9 +1,6 @@
 package com.yorku.wbapp.controller.analysis;
 
-import com.yorku.wbapp.controller.analysis.calc.AnnualPercentChange;
-import com.yorku.wbapp.controller.analysis.calc.Average;
-import com.yorku.wbapp.controller.analysis.calc.Calculation;
-import com.yorku.wbapp.controller.analysis.calc.Ratio;
+import com.yorku.wbapp.controller.analysis.calc.*;
 import com.yorku.wbapp.model.WBData;
 import com.yorku.wbapp.model.WBDataRecord;
 
@@ -35,6 +32,10 @@ public class CalculationManager {
         }
         else if (calculationName.equals(AnalysisConstants.AVERAGE)){
             Calculation calculation = new Average(wbDataMap);
+            analyzedList = calculation.performCalculation();
+        }
+        else if (calculationName.equals(AnalysisConstants.NONE)){
+            Calculation calculation = new NoCalc(wbDataMap);
             analyzedList = calculation.performCalculation();
         }
         //Pass and return the analyzed data into a new WBData object

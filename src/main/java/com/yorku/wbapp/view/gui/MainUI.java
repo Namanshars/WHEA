@@ -13,19 +13,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 import com.yorku.wbapp.controller.GraphController;
 import com.yorku.wbapp.controller.analysis.AnalysisConstants;
@@ -77,6 +72,7 @@ public class MainUI extends JFrame {
 		frame.setVisible(true);
 	}
 
+	/*
 	MainUI() {
 		// Set window title
 		super("Country Statistics");
@@ -160,18 +156,19 @@ public class MainUI extends JFrame {
 		//todo: get graph selection from GUI
 		List<String> selectedGraphs = new ArrayList<>();
 		selectedGraphs.add(VisualConstants.BAR);
-		//selectedGraphs.add(VisualConstants.LINE);
+		selectedGraphs.add(VisualConstants.LINE);
 		selectedGraphs.add(VisualConstants.SCATTER);
 		selectedGraphs.add(VisualConstants.REPORT);
+		selectedGraphs.add(VisualConstants.PIE);
 
 		//real thing
 		GraphController graphController = new GraphController();
 
-		Map<String, WBData> analyzedDataMap = facade.performAnalysis(fc, AnalysisConstants.CO2EnergyUseAirPollutionPercentChange);
-		graphController.createVisuals(west, analyzedDataMap, analyzedDataMap, AnalysisConstants.CO2EnergyUseAirPollutionPercentChange, selectedGraphs);
+		Map<String, WBData> analyzedDataMap = facade.performAnalysis(fc, AnalysisConstants.ANALYSIS_EIGHT);
+		graphController.createVisuals(west, analyzedDataMap, analyzedDataMap, AnalysisConstants.ANALYSIS_EIGHT, selectedGraphs);
 
-		Map<String, WBData> analyzedDataMap5 = facade.performAnalysis(fc, AnalysisConstants.ANALYSIS_EIGHT);
-		graphController.createVisuals(west, analyzedDataMap5, analyzedDataMap5, AnalysisConstants.ANALYSIS_EIGHT, selectedGraphs);
+		//Map<String, WBData> analyzedDataMap5 = facade.performAnalysis(fc, AnalysisConstants.ANALYSIS_SIX);
+		//graphController.createVisuals(west, analyzedDataMap5, analyzedDataMap5, AnalysisConstants.ANALYSIS_SIX, selectedGraphs);
 
 		//Map<String, WBData> analyzedDataMapPie = facade.performAnalysis(fc, AnalysisConstants.ForestAreaAverage);
 		Map<String, WBData> analyzedDataMapPie = facade.performAnalysis(fc, AnalysisConstants.ANALYSIS_FIVE);
@@ -187,6 +184,161 @@ public class MainUI extends JFrame {
 		getContentPane().add(south, BorderLayout.SOUTH);
 		getContentPane().add(west, BorderLayout.WEST);
 	}
+	 */
+
+	MainUI() {
+		// Set window title
+		super("Country Statistics");
+
+		// Set top bar
+		JLabel chooseCountryLabel = new JLabel("Choose a country: ");
+		Vector<String> countriesNames = new Vector<String>();
+
+		JFrame frame = new JFrame();
+
+		//Interface to all the controllers:
+		Facade facade = new Facade();
+		countriesNames = facade.getCountries();
+
+		//Load all countries into drop down menu
+		countriesNames.sort(null);
+		JComboBox<String> countriesList = new JComboBox<String>(countriesNames);
+
+		//Dates
+		JLabel from = new JLabel("From");
+		JLabel to = new JLabel("To");
+		Vector<String> years = new Vector<String>();
+		for (int i = 2021; i >= 2010; i--) {
+			years.add("" + i);
+		}
+
+		//A combo box is a drop down menu which holds a list of items
+		//We must retrieve the selected value of eawch box to retrive the year the user selects
+
+		JComboBox<String> fromList = new JComboBox<String>(years);
+		JComboBox<String> toList = new JComboBox<String>(years);
+
+		JPanel north = new JPanel();
+		north.add(chooseCountryLabel);
+		north.add(countriesList);
+		north.add(from);
+		north.add(fromList);
+		north.add(to);
+		north.add(toList);
+
+		// Set bottom bar
+		JButton recalculate = new JButton("Recalculate");
+		JLabel viewsLabel = new JLabel("Available Views: ");
+
+		Vector<String> viewsNames = new Vector<String>();
+		viewsNames.add("Pie Chart");
+		viewsNames.add("Line Chart");
+		viewsNames.add("Bar Chart");
+		viewsNames.add("Scatter Chart");
+		viewsNames.add("Report");
+		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
+		JButton addView = new JButton("+");
+		JButton removeView = new JButton("-");
+
+		JLabel methodLabel = new JLabel("        Choose analysis method: ");
+
+		Vector<String> methodsNames = new Vector<String>();
+		methodsNames.add(AnalysisConstants.ANALYSIS_ONE);
+		methodsNames.add(AnalysisConstants.ANALYSIS_TWO);
+		methodsNames.add(AnalysisConstants.ANALYSIS_THREE);
+		methodsNames.add(AnalysisConstants.ANALYSIS_FOUR);
+		methodsNames.add(AnalysisConstants.ANALYSIS_FIVE);
+		methodsNames.add(AnalysisConstants.ANALYSIS_SIX);
+		methodsNames.add(AnalysisConstants.ANALYSIS_SEVEN);
+		methodsNames.add(AnalysisConstants.ANALYSIS_EIGHT);
+
+		JComboBox<String> methodsList = new JComboBox<String>(methodsNames);
+
+		JPanel south = new JPanel();
+		south.add(viewsLabel);
+		south.add(viewsList);
+		south.add(addView);
+		south.add(removeView);
+
+		south.add(methodLabel);
+		south.add(methodsList);
+		south.add(recalculate);
+
+		JPanel east = new JPanel();
+
+		// Set charts region
+		JPanel west = new JPanel();
+		west.setLayout(new GridLayout(2, 0));
+
+		//todo: get graph selection from GUI
+		List<String> selectedGraphs = new ArrayList<>();
+		selectedGraphs.add(VisualConstants.BAR);
+		selectedGraphs.add(VisualConstants.LINE);
+		selectedGraphs.add(VisualConstants.SCATTER);
+		selectedGraphs.add(VisualConstants.REPORT);
+		selectedGraphs.add(VisualConstants.PIE);
+
+		getContentPane().add(north, BorderLayout.NORTH);
+		getContentPane().add(east, BorderLayout.EAST);
+		getContentPane().add(south, BorderLayout.SOUTH);
+		getContentPane().add(west, BorderLayout.WEST);
+
+		//If the recalculate button is pressed, then we validate and pass our selections
+		recalculate.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				GraphController graphController = new GraphController();
+				String fromYear = (String) fromList.getSelectedItem();
+				String endYear = (String) toList.getSelectedItem();
+				int selectedLastYear = Integer.parseInt(endYear);
+				int selectedInitialYear = Integer.parseInt(fromYear);
+
+				//todo: Check if analysis is available for the year
+				if (selectedInitialYear > selectedLastYear){
+					JOptionPane.showMessageDialog(frame, "The starting year cannot be greater than the ending year");
+				}
+
+				//Get the selected country from the user
+				String selectedCountry = (String) countriesList.getSelectedItem();
+				//Get the selected analysis from the user
+				String selectedAnalysis = (String) methodsList.getSelectedItem();
+
+				//After retrieving all the selected data from the user, we must create a FilterCriteria object so that they can be passed around the program
+				FilterCriteria selectedFilterCriteria = new FilterCriteria(selectedCountry, selectedInitialYear, selectedLastYear, null);
+				JOptionPane.showMessageDialog(frame, "Recalculate: "+selectedCountry+" start:"+selectedInitialYear+" end: "+selectedLastYear+" analysis: "+selectedAnalysis);
+				//Perform the necessary analysis so that it can be used for visualization
+				Map<String, WBData> analyzedDataMap = facade.performAnalysis(selectedFilterCriteria, selectedAnalysis);
+				//Create visual for the analysis
+				graphController.createVisuals(west, analyzedDataMap, analyzedDataMap, selectedAnalysis, selectedGraphs);
+				repaint();
+
+			}
+		});
+
+		/*
+		GraphController graphController = new GraphController();
+		FilterCriteria selectedFilterCriteria = new FilterCriteria("IND", 2011, 2014, null);
+		Map<String, WBData> analyzedDataMap5 = facade.performAnalysis(selectedFilterCriteria, AnalysisConstants.ANALYSIS_TWO);
+		graphController.createVisuals(west, analyzedDataMap5, analyzedDataMap5, AnalysisConstants.ANALYSIS_TWO, selectedGraphs);
+		*/
+
+	}
+
+
+			/*
+		Map<String, WBData> analyzedDataMap8 = facade.performAnalysis(selectedFilterCriteria, AnalysisConstants.ANALYSIS_EIGHT);
+		graphController.createVisuals(west, analyzedDataMap8, analyzedDataMap8, AnalysisConstants.ANALYSIS_EIGHT, selectedGraphs);
+
+		//Map<String, WBData> analyzedDataMapPie = facade.performAnalysis(fc, AnalysisConstants.ForestAreaAverage);
+		Map<String, WBData> analyzedDataMapPie = facade.performAnalysis(selectedFilterCriteria, AnalysisConstants.ANALYSIS_FIVE);
+
+		selectedGraphs = new ArrayList<>();
+		selectedGraphs.add(VisualConstants.LINE);
+		selectedGraphs.add(VisualConstants.PIE); //not allowed - should not show up
+		graphController.createVisuals(west, analyzedDataMapPie, null, AnalysisConstants.ANALYSIS_FIVE, selectedGraphs);
+		 */
+
 
 	/*
 		//createCharts(west, analyzedDataMap, analysisOne.getAnalysisName());
