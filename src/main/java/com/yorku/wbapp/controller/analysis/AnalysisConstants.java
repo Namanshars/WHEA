@@ -24,6 +24,7 @@ public class AnalysisConstants {
 
     //todo - below needs to be corrected - using % of GDP for now - need to implement per 1000 people
     final public static String HEALTH_EXP = "SH.XPD.CHEX.GD.ZS";
+    final public static String GDP_CAPITA = "NY.GDP.PCAP.CD";
 
     final public static String PROBLEMS_ACCESSING = "SH.ACS.WHER.Q1.ZS";
     final public static String MORTALITY_INFANTS = "SH.DYN.MORT.Q4";

@@ -26,7 +26,7 @@ public abstract class AnalysisStrategy {
 
     //get an object of all data records that match the filter criteria
     public WBData getFilterWBData(FilterCriteria filterCriteria) {
-        DataManager dataManager = new DataManager();
+        DataManager dataManager = DataManager.getInstance();
         return  dataManager.getCountryWBData(filterCriteria);
     }
 

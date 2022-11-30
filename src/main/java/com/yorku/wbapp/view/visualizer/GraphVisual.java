@@ -4,7 +4,8 @@ import com.yorku.wbapp.model.WBData;
 
 import javax.swing.*;
 import java.util.Map;
-
+//Basic implementation of a visual interface
+//All visuals add functionality upon this class as we use the decorator design pattern
 public class GraphVisual implements Visual{
     @Override
     public void createVisual(JPanel west, Map<String, WBData> analyzedDataMapOne, Map<String, WBData> analyzedDataMapTwo, String chartsName) {

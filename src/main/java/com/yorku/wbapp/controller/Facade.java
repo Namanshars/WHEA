@@ -15,7 +15,8 @@ public class Facade {
     Vector<String> countriesNames = null;
 
     public Facade() {
-        DataManager countryData = new DataManager();
+        //Here we use the singleton design pattern to ensure that a single instance of DataManager is used
+        DataManager countryData = DataManager.getInstance();
         countries = countryData.getCountriesList();
 
         countriesNames = new Vector<String>();

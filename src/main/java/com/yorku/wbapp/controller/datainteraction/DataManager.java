@@ -5,6 +5,7 @@ import com.yorku.wbapp.model.Country;
 import com.yorku.wbapp.model.FilterCriteria;
 import com.yorku.wbapp.model.WBData;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,23 @@ public class DataManager{
     WBData wbData;
     Country selectCountry;
     FilterCriteria fc;
+
+    private static DataManager instance;
+
+    private DataManager() {
+
+    }
+
+    public static DataManager getInstance(){
+        if (instance == null){
+            synchronized (DataManager.class){
+                if (instance == null){
+                    instance = new DataManager();
+                }
+            }
+        }
+        return instance;
+    }
 
     public static void main(String[] args) {
         RestApiClient restApiClient = new RestApiClient();
