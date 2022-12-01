@@ -8,12 +8,18 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import java.io.FileReader;
+import java.io.FileWriter;
+import org.json.simple.parser.JSONParser;
 
 /**
  *
  * @author harshilpatel
  */
 public class Login_UI extends javax.swing.JFrame {
+    JSONArray jrr = new JSONArray();
 
     /**
      * Creates new form Login_UI
@@ -29,7 +35,7 @@ public class Login_UI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -69,7 +75,8 @@ public class Login_UI extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel2)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jTextField1))
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 295,
+                                                        Short.MAX_VALUE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel1)
                                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -78,10 +85,11 @@ public class Login_UI extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jPasswordField1)))
                                 .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(186, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1)
-                                .addGap(138, 138, 138)));
+                                .addGap(18, 18, 18)
+                                .addGap(122, 122, 122)));
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -100,7 +108,8 @@ public class Login_UI extends javax.swing.JFrame {
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButton1))
                                 .addContainerGap(104, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,28 +125,36 @@ public class Login_UI extends javax.swing.JFrame {
                                 Short.MAX_VALUE));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        JSONArray jrr = new JSONArray();
+        Object ob = null;
+        JSONParser Jp = new JSONParser();
+
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logindb", "root", "");
-            String sql = "Select * from user_data where username=? and password=?";
-            PreparedStatement pst = con.prepareStatement(sql);
+            FileReader file = new FileReader("UserData.json");
+            ob = Jp.parse(file);
+            jrr = (JSONArray) ob;
+            file.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error occured");
+        }
 
-            pst.setString(1, jTextField1.getText());
-            pst.setString(2, jPasswordField1.getText());
-
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
+        JSONObject obj = new JSONObject();
+        int size = jrr.size();
+        obj.put("Username", jTextField1.getText());
+        obj.put("Password", jPasswordField1.getText());
+        for (int i = 0; i < size; i++) {
+            if (obj.equals(jrr.get(i))) {
                 JOptionPane.showMessageDialog(null, "You have successfully logged in");
                 MainUI menu = new MainUI();
+                menu.setSize(getPreferredSize());
                 menu.setVisible(true);
                 setVisible(false);
-            }
-
-            else if (jTextField1.getText().trim().isEmpty() && jPasswordField1.getText().trim().isEmpty()) {
+                break;
+            } else if (jTextField1.getText().trim().isEmpty() && jPasswordField1.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Both the fields are required to fill and cannot be left empty");
                 dispose();
             }
@@ -150,20 +167,12 @@ public class Login_UI extends javax.swing.JFrame {
             else if (jPasswordField1.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Password cannot be left empty");
                 dispose();
-            }
-
-            else {
+            } else if (i == size - 1) {
                 JOptionPane.showMessageDialog(null, "Your cresentials don't match or they don't exist");
                 dispose();
             }
-            con.close();
-
         }
 
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
     }// GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -205,7 +214,7 @@ public class Login_UI extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -213,5 +222,5 @@ public class Login_UI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private JPasswordField jPasswordField1;
     private JTextField jTextField1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 }

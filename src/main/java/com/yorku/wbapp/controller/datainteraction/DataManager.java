@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 //The DataManager calls the RestApiClient to retrieve the necessary data
 //Classes can call DataManager instead of having to consistently make api calls using RestApiClient
-public class DataManager{
+public class DataManager implements DataManagerIF{
     List<Country> countries = new ArrayList<Country>();
     WBData wbData;
     Country selectCountry;

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Vector;
 //This is the class that talks to everyone. It talks to the front end and all java classes
 //TEST CODE IN THIS CLASS
-public class Facade {
+public class Facade implements FacadeIF{
     Countries countries = null;
     WBData wbData;
     WBData filteredWBData;
@@ -26,15 +26,17 @@ public class Facade {
         }
     }
 
+    @Override
     public Vector<String> getCountries() {
 
         return countriesNames;
     }
-
+    @Override
     public WBData getWBData() {
+
         return wbData;
     }
-
+    @Override
     public Map<String, WBData> performAnalysis(FilterCriteria filterCriteria, String analysisName){
         AnalysisControllerIF analysisController = new AnalysisController();
         return analysisController.performAnalysis(filterCriteria, analysisName);

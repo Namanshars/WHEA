@@ -20,30 +20,21 @@ public class AnalysisThree extends AnalysisStrategy {
         fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear(), filterCriteria.getToYear(),  AnalysisConstants.GDP_CAPITA);
         WBData dataTwo = getFilterWBData(fc);
 
-        Map<String, WBData> wb = new HashMap<>();
-        wb.put(AnalysisConstants.CO2_ANALYSIS, dataOne);
-        wb.put(AnalysisConstants.GDP_CAPITA, dataTwo);
+        Map<String, WBData> allDataMap = new HashMap<>();
+        allDataMap.put(AnalysisConstants.CO2_ANALYSIS, dataOne);
+        allDataMap.put(AnalysisConstants.GDP_CAPITA, dataTwo);
 
+        //Analyze data and create new WBData to hold it
         CalculationManager calculationManager = new CalculationManager();
-        //Create a map that associates the name of indicator with relevant data
-        Map<String, WBData> forestAreaData = new HashMap<>();
-        forestAreaData.put(AnalysisConstants.CO2_ANALYSIS, wb.get(AnalysisConstants.CO2_ANALYSIS));
-        //Create a map that associates the name of indicator with relevant data
-        Map<String, WBData>  airPollutionData = new HashMap<>();
-        airPollutionData.put(AnalysisConstants.GDP_CAPITA, wb.get(AnalysisConstants.GDP_CAPITA));
+        WBData analyzedData = calculationManager.doCalculation(allDataMap, AnalysisConstants.RATIO);
+        printAnalyzedData("analyzedDataOne ", analyzedData);
 
-        //Analyze data and create new WBData to hold it
-        WBData analyzedPM25Data = calculationManager.doCalculation(airPollutionData, AnalysisConstants.RATIO);
-        printAnalyzedData("CO2", analyzedPM25Data);
-        //Analyze data and create new WBData to hold it
-        WBData analyzedForestAreaData = calculationManager.doCalculation(forestAreaData, AnalysisConstants.RATIO);
-        printAnalyzedData("Energy use RATIO ", analyzedForestAreaData);
         //return new map that associates name of indicator with the analyzed data
-        Map<String, WBData> analyzedData = new HashMap<>();
-        analyzedData.put(AnalysisConstants.CO2_ANALYSIS, analyzedPM25Data);
-        analyzedData.put(AnalysisConstants.GDP_CAPITA, analyzedForestAreaData);
+        Map<String, WBData> analyzedDataMap = new HashMap<>();
+        analyzedDataMap.put(AnalysisConstants.CO2_ANALYSIS, analyzedData);
+        analyzedDataMap.put(AnalysisConstants.GDP_CAPITA, analyzedData);
 
-        return analyzedData;
+        return analyzedDataMap;
     }
 
     public AnalysisThree(String analysisName) {

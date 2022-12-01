@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class GraphController {
+public class GraphController implements GraphControllerIF{
 
+    @Override
     public List<String> getSuitableGraphs(String analysisType) {
         List<String> suitableGraphs = new ArrayList<>();
         if(analysisType.equals(AnalysisConstants.ANALYSIS_ONE)) {
@@ -40,7 +41,9 @@ public class GraphController {
             suitableGraphs.add(VisualConstants.SCATTER);
             suitableGraphs.add(VisualConstants.REPORT);
         }else if(analysisType.equals(AnalysisConstants.ANALYSIS_SEVEN)) {
-            suitableGraphs.add(VisualConstants.PIE);
+            suitableGraphs.add(VisualConstants.BAR);
+            suitableGraphs.add(VisualConstants.LINE);
+            suitableGraphs.add(VisualConstants.SCATTER);
             suitableGraphs.add(VisualConstants.REPORT);
         }else if(analysisType.equals(AnalysisConstants.ANALYSIS_EIGHT)) {
             suitableGraphs.add(VisualConstants.BAR);
@@ -63,6 +66,7 @@ public class GraphController {
         return graphs;
     }
 
+    @Override
     public void createVisuals(JPanel west, Map<String, WBData> analyzedDataMapOne, Map<String, WBData> analyzedDataMapTwo, String analysisType, List<String> selectedGraphs){
         System.out.println("createVisuals()");
         List<String> suitableGraphs = getSuitableGraphs(analysisType);

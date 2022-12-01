@@ -22,30 +22,21 @@ public class AnalysisSix extends AnalysisStrategy{
         fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear(), filterCriteria.getToYear(),  AnalysisConstants.HOSPITAL_BEDS);
         WBData dataTwo = getFilterWBData(fc);
 
-        Map<String, WBData> wb = new HashMap<>();
-        wb.put(AnalysisConstants.HEALTH_EXP, dataOne);
-        wb.put(AnalysisConstants.HOSPITAL_BEDS, dataTwo);
+        Map<String, WBData> allDataMap = new HashMap<>();
+        allDataMap.put(AnalysisConstants.HEALTH_EXP, dataOne);
+        allDataMap.put(AnalysisConstants.HOSPITAL_BEDS, dataTwo);
 
+        //Analyze data and create new WBData to hold it
         CalculationManager calculationManager = new CalculationManager();
-        //Create a map that associates the name of indicator with relevant data
-        Map<String, WBData> dataOneMap = new HashMap<>();
-        dataOneMap.put(AnalysisConstants.HEALTH_EXP, wb.get(AnalysisConstants.HEALTH_EXP));
-        //Create a map that associates the name of indicator with relevant data
-        Map<String, WBData>  dataTwoMap = new HashMap<>();
-        dataTwoMap.put(AnalysisConstants.HOSPITAL_BEDS, wb.get(AnalysisConstants.HOSPITAL_BEDS));
+        WBData analyzedData = calculationManager.doCalculation(allDataMap, AnalysisConstants.RATIO);
+        printAnalyzedData("analyzedDataOne ", analyzedData);
 
-        //Analyze data and create new WBData to hold it
-        WBData analyzedDataOne = calculationManager.doCalculation(dataOneMap, AnalysisConstants.RATIO);
-        printAnalyzedData(" ", analyzedDataOne);
-        WBData analyzedDataTwo = calculationManager.doCalculation(dataTwoMap, AnalysisConstants.RATIO);
-        printAnalyzedData(" ", analyzedDataTwo);
-        //Analyze data and create new WBData to hold it
         //return new map that associates name of indicator with the analyzed data
-        Map<String, WBData> analyzedData = new HashMap<>();
-        analyzedData.put(AnalysisConstants.HEALTH_EXP, analyzedDataOne);
-        analyzedData.put(AnalysisConstants.HOSPITAL_BEDS, analyzedDataTwo);
+        Map<String, WBData> analyzedDataMap = new HashMap<>();
+        analyzedDataMap.put(AnalysisConstants.HEALTH_EXP, analyzedData);
+        analyzedDataMap.put(AnalysisConstants.HOSPITAL_BEDS, analyzedData);
 
-        return analyzedData;
+        return analyzedDataMap;
     }
 
 

@@ -32,7 +32,7 @@ public class Ratio extends Calculation{
             if(counter ==0){
                 wbDataOne = wbDataMap.get(key);
                 indicatorOneKey = key;
-            }else if(counter ==1){
+            }else if(counter == 1){
                 wbDataTwo = wbDataMap.get(key);
                 indicatorTwoKey = key;
             }

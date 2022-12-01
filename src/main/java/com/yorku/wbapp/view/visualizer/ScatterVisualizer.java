@@ -16,7 +16,7 @@ import org.jfree.data.time.Year;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
-
+//Class for creating a scatter Chart
 public class ScatterVisualizer extends VisualDecorator {
 
     public ScatterVisualizer(Visual visual) {

@@ -12,7 +12,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
-
+//Class for creating a pie Chart
 public class PieVisualizer extends VisualDecorator {
 
     public PieVisualizer(Visual visual) {

@@ -6,7 +6,7 @@ import com.yorku.wbapp.model.WBDataRecord;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
-
+//Class for creating a report
 public class ReportVisualizer extends VisualDecorator {
 
     public ReportVisualizer(Visual visual) {
@@ -21,7 +21,7 @@ public class ReportVisualizer extends VisualDecorator {
         report.setBackground(Color.white);
         String reportMessage, reportMessage2;
 
-        reportMessage = "Mortality vs Expenses & Hospital Beds\n" + "==============================\n";
+        reportMessage = "\n" + "==============================\n";
 
         for(String key: analyzedDataMapOne.keySet()){
             WBData wbData = analyzedDataMapOne.get(key);

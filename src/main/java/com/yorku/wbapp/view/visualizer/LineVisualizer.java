@@ -16,7 +16,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
-
+//Class for creating a Line Chart
 public class LineVisualizer extends VisualDecorator {
 
     public LineVisualizer(Visual visual) {

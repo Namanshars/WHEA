@@ -23,6 +23,7 @@ public class AnalysisSeven extends AnalysisStrategy{
         wb.put(AnalysisConstants.PROBLEMS_ACCESSING, dataOne);
         wb.put(AnalysisConstants.MORTALITY_INFANTS, dataTwo);
 
+        /*
         CalculationManager calculationManager = new CalculationManager();
         //Create a map that associates the name of indicator with relevant data
         Map<String, WBData> dataOneMap = new HashMap<>();
@@ -41,8 +42,9 @@ public class AnalysisSeven extends AnalysisStrategy{
         Map<String, WBData> analyzedData = new HashMap<>();
         analyzedData.put(AnalysisConstants.PROBLEMS_ACCESSING, analyzedDataOne);
         analyzedData.put(AnalysisConstants.MORTALITY_INFANTS, analyzedDataTwo);
-
-        return analyzedData;
+        */
+        //return analyzedData;
+        return wb;
 
     }
 

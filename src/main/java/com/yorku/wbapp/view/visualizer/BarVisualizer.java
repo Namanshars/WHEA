@@ -13,7 +13,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
-
+//Class for creating a BarChart
 public class BarVisualizer extends VisualDecorator {
 
     public BarVisualizer(Visual visual) {
@@ -63,16 +63,6 @@ public class BarVisualizer extends VisualDecorator {
 
         JFreeChart barChart = new JFreeChart(chartsName, new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
 
-        // Different way to create bar chart
-        /*
-         * dataset = new DefaultCategoryDataset();
-         *
-         * dataset.addValue(3.946, "Unemployed", "Men"); dataset.addValue(96.054,
-         * "Employed", "Men"); dataset.addValue(3.837, "Unemployed", "Women");
-         * dataset.addValue(96.163, "Employed", "Women"); barChart =
-         * ChartFactory.createBarChart("Unemployment: Men vs Women", "Gender",
-         * "Percentage", dataset, PlotOrientation.VERTICAL, true, true, false);
-         */
 
         ChartPanel chartPanel = new ChartPanel(barChart);
         chartPanel.setPreferredSize(new Dimension(400, 300));

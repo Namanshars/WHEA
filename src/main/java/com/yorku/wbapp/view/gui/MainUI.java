@@ -23,6 +23,7 @@ import java.util.Vector;
 import javax.swing.*;
 
 import com.yorku.wbapp.controller.GraphController;
+import com.yorku.wbapp.controller.GraphControllerIF;
 import com.yorku.wbapp.controller.analysis.AnalysisConstants;
 import com.yorku.wbapp.controller.Facade;
 import com.yorku.wbapp.model.FilterCriteria;
@@ -230,15 +231,21 @@ public class MainUI extends JFrame {
 		JButton recalculate = new JButton("Recalculate");
 		JLabel viewsLabel = new JLabel("Available Views: ");
 
+		//todo: get graph selection from GUI
+		List<String> userSelectedGraphs = new ArrayList<>();
+
+
 		Vector<String> viewsNames = new Vector<String>();
-		viewsNames.add("Pie Chart");
-		viewsNames.add("Line Chart");
-		viewsNames.add("Bar Chart");
-		viewsNames.add("Scatter Chart");
-		viewsNames.add("Report");
+		viewsNames.add(VisualConstants.PIE);
+		viewsNames.add(VisualConstants.LINE);
+		viewsNames.add(VisualConstants.BAR);
+		viewsNames.add(VisualConstants.SCATTER);
+		viewsNames.add(VisualConstants.REPORT);
 		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
 		JButton addView = new JButton("+");
 		JButton removeView = new JButton("-");
+
+
 
 		JLabel methodLabel = new JLabel("        Choose analysis method: ");
 
@@ -268,27 +275,61 @@ public class MainUI extends JFrame {
 
 		// Set charts region
 		JPanel west = new JPanel();
-		west.setLayout(new GridLayout(2, 0));
-
-		//todo: get graph selection from GUI
-		List<String> selectedGraphs = new ArrayList<>();
-		selectedGraphs.add(VisualConstants.BAR);
-		selectedGraphs.add(VisualConstants.LINE);
-		selectedGraphs.add(VisualConstants.SCATTER);
-		selectedGraphs.add(VisualConstants.REPORT);
-		selectedGraphs.add(VisualConstants.PIE);
+		west.setLayout(new GridLayout(2, 2));
 
 		getContentPane().add(north, BorderLayout.NORTH);
 		getContentPane().add(east, BorderLayout.EAST);
 		getContentPane().add(south, BorderLayout.SOUTH);
 		getContentPane().add(west, BorderLayout.WEST);
 
+		//default visual
+		displayDefaultVisuals(facade, west);
+
+		//Create a graph controller to control creation of visuals
+		GraphControllerIF graphController = new GraphController();
+
+		//Add visual when the + button is pressed
+		addView.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Get the selected graph
+				String selectedGraph = (String) viewsList.getSelectedItem();
+				//Get the selected analysis
+				String selectedAnalysis = (String) methodsList.getSelectedItem();
+				// if the graph the user added is suitable for the analysis then we add it to the list of visuals
+				if (graphController.getSuitableGraphs(selectedAnalysis).contains(selectedGraph)){
+					if (!(userSelectedGraphs.contains(selectedGraph))){
+						userSelectedGraphs.add(selectedGraph);
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(frame, "" + selectedGraph + " can not be used for this analysis");
+				}
+				JOptionPane.showMessageDialog(frame, "userSelectedGraphs =" + userSelectedGraphs);
+			}
+		});
+		//Remove visual when the - button is pressed
+		removeView.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String selectedGraph = (String) viewsList.getSelectedItem();
+
+
+				if (userSelectedGraphs.contains(selectedGraph)){
+					userSelectedGraphs.remove(selectedGraph);
+				}
+				JOptionPane.showMessageDialog(frame, "userSelectedGraphs =" + userSelectedGraphs);
+			}
+		});
+		Observer observer = new ConcreteObserver();
+
 		//If the recalculate button is pressed, then we validate and pass our selections
 		recalculate.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				west.removeAll();
 
-				GraphController graphController = new GraphController();
+				//GraphController graphController = new GraphController();
 				String fromYear = (String) fromList.getSelectedItem();
 				String endYear = (String) toList.getSelectedItem();
 				int selectedLastYear = Integer.parseInt(endYear);
@@ -298,31 +339,41 @@ public class MainUI extends JFrame {
 				if (selectedInitialYear > selectedLastYear){
 					JOptionPane.showMessageDialog(frame, "The starting year cannot be greater than the ending year");
 				}
+				else {
 
-				//Get the selected country from the user
-				String selectedCountry = (String) countriesList.getSelectedItem();
-				//Get the selected analysis from the user
-				String selectedAnalysis = (String) methodsList.getSelectedItem();
+					//Get the selected country from the user
+					String selectedCountry = (String) countriesList.getSelectedItem();
+					//Get the selected analysis from the user
+					String selectedAnalysis = (String) methodsList.getSelectedItem();
 
-				//After retrieving all the selected data from the user, we must create a FilterCriteria object so that they can be passed around the program
-				FilterCriteria selectedFilterCriteria = new FilterCriteria(selectedCountry, selectedInitialYear, selectedLastYear, null);
-				JOptionPane.showMessageDialog(frame, "Recalculate: "+selectedCountry+" start:"+selectedInitialYear+" end: "+selectedLastYear+" analysis: "+selectedAnalysis);
-				//Perform the necessary analysis so that it can be used for visualization
-				Map<String, WBData> analyzedDataMap = facade.performAnalysis(selectedFilterCriteria, selectedAnalysis);
-				//Create visual for the analysis
-				graphController.createVisuals(west, analyzedDataMap, analyzedDataMap, selectedAnalysis, selectedGraphs);
-				repaint();
+					//Here we use the observer pattern to update all the user selections
+					observer.update(selectedInitialYear, selectedLastYear, selectedCountry, selectedAnalysis, userSelectedGraphs, graphController, west);
+				}
+
+				west.revalidate();
+				west.repaint();
 
 			}
 		});
 
-		/*
-		GraphController graphController = new GraphController();
-		FilterCriteria selectedFilterCriteria = new FilterCriteria("IND", 2011, 2014, null);
-		Map<String, WBData> analyzedDataMap5 = facade.performAnalysis(selectedFilterCriteria, AnalysisConstants.ANALYSIS_TWO);
-		graphController.createVisuals(west, analyzedDataMap5, analyzedDataMap5, AnalysisConstants.ANALYSIS_TWO, selectedGraphs);
-		*/
 
+
+
+
+	}
+
+	private void displayDefaultVisuals(Facade facade, JPanel west) {
+		List<String> defaultGraphs = new ArrayList<>();
+		defaultGraphs.add(VisualConstants.LINE);
+		defaultGraphs.add(VisualConstants.BAR);
+		defaultGraphs.add(VisualConstants.SCATTER);
+		defaultGraphs.add(VisualConstants.REPORT);
+
+		GraphControllerIF defaultGraphController = new GraphController();
+		FilterCriteria defaultFilterCriteria = new FilterCriteria("IND", 2011, 2014, null);
+		Map<String, WBData> analyzedDefaultDataMap = facade.performAnalysis(defaultFilterCriteria, AnalysisConstants.ANALYSIS_ONE);
+		defaultGraphController.createVisuals(west, analyzedDefaultDataMap, analyzedDefaultDataMap, AnalysisConstants.ANALYSIS_ONE, defaultGraphs);
+		//
 	}
 
 
