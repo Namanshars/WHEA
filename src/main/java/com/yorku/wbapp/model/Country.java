@@ -1,6 +1,7 @@
 package com.yorku.wbapp.model;
 
 public class Country {
+    String countryName;
     String countryId;
     String countryValue;
     String countryISO3Code;
@@ -11,6 +12,10 @@ public class Country {
         this.countryValue = countryValue;
         this.countryISO3Code = countryISO3Code;
         this.fetchable = fetchable;
+    }
+    public Country(String countryValue, String countryId){
+        this.countryId = countryId;
+        this.countryValue = countryValue;
     }
 
     public String getCountryId() {

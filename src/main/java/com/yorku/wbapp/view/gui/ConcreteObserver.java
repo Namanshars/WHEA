@@ -4,14 +4,16 @@ import com.yorku.wbapp.controller.Facade;
 import com.yorku.wbapp.controller.GraphControllerIF;
 import com.yorku.wbapp.model.FilterCriteria;
 import com.yorku.wbapp.model.WBData;
+import org.json.JSONException;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 
 public class ConcreteObserver implements Observer{
     @Override
-    public void update(int selectedInitialYear, int selectedLastYear, String selectedCountry, String selectedAnalysis, List<String> userSelectedGraphs, GraphControllerIF graphController, JPanel west) {
+    public void update(int selectedInitialYear, int selectedLastYear, String selectedCountry, String selectedAnalysis, List<String> userSelectedGraphs, GraphControllerIF graphController, JPanel west){
 
         JFrame frame = new JFrame();
         Facade facade = new Facade();

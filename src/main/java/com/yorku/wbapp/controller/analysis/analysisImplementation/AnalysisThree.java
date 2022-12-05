@@ -14,10 +14,10 @@ public class AnalysisThree extends AnalysisStrategy {
     public Map<String, WBData> analyse(FilterCriteria filterCriteria) {
 
         //get the data based on FilterCriteria - country and year range
-        FilterCriteria fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear(), filterCriteria.getToYear(), AnalysisConstants.CO2_ANALYSIS);
+        FilterCriteria fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear() + 1, filterCriteria.getToYear(), AnalysisConstants.CO2_ANALYSIS);
         WBData dataOne = getFilterWBData(fc);
 
-        fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear(), filterCriteria.getToYear(),  AnalysisConstants.GDP_CAPITA);
+        fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear() + 1, filterCriteria.getToYear(),  AnalysisConstants.GDP_CAPITA);
         WBData dataTwo = getFilterWBData(fc);
 
         Map<String, WBData> allDataMap = new HashMap<>();

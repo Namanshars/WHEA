@@ -4,10 +4,13 @@
  */
 package com.yorku.wbapp.view.gui;
 
+import java.io.FileNotFoundException;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import java.io.FileReader;
@@ -61,7 +64,13 @@ public class Login_UI extends javax.swing.JFrame {
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -127,7 +136,7 @@ public class Login_UI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException, JSONException {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JSONArray jrr = new JSONArray();
         Object ob = null;

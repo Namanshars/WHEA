@@ -2,7 +2,9 @@ package com.yorku.wbapp.controller;
 
 import com.yorku.wbapp.controller.datainteraction.DataManager;
 import com.yorku.wbapp.model.*;
+import org.json.JSONException;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -15,20 +17,41 @@ public class Facade implements FacadeIF{
     Vector<String> countriesNames = null;
 
     public Facade() {
+
+    }
+
+    public static void main(String[] args) {
+        FacadeIF facade = new Facade();
+
+        System.out.println("" + facade.getCountries());
+    }
+
+    @Override
+    public Vector<String> getCountries() {
+
         //Here we use the singleton design pattern to ensure that a single instance of DataManager is used
         DataManager countryData = DataManager.getInstance();
         countries = countryData.getCountriesList();
 
         countriesNames = new Vector<String>();
         for (Country country : countries.getCountries()) {
-            String countryName = country.getCountryValue();
+            String countryName = country.getCountryId();
             countriesNames.add(countryName);
         }
+        return countriesNames;
     }
-
     @Override
-    public Vector<String> getCountries() {
+    public Vector<String> getNonFetchableCountries() {
 
+        //Here we use the singleton design pattern to ensure that a single instance of DataManager is used
+        DataManager countryData = DataManager.getInstance();
+        countries = countryData.getNonFetchableCountriesList();
+
+        countriesNames = new Vector<String>();
+        for (Country country : countries.getCountries()) {
+            String countryName = country.getCountryId();
+            countriesNames.add(countryName);
+        }
         return countriesNames;
     }
     @Override

@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -52,20 +53,21 @@ import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import org.json.JSONException;
 
 public class MainUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
 
-	public static MainUI getInstance() {
+	public static MainUI getInstance() throws FileNotFoundException, JSONException {
 		if (instance == null)
 			instance = new MainUI();
 
 		return instance;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, JSONException {
 
 		JFrame frame = MainUI.getInstance();
 		frame.setSize(900, 600);
@@ -187,7 +189,7 @@ public class MainUI extends JFrame {
 	}
 	 */
 
-	MainUI() {
+	MainUI(){
 		// Set window title
 		super("Country Statistics");
 
@@ -200,9 +202,10 @@ public class MainUI extends JFrame {
 		//Interface to all the controllers:
 		Facade facade = new Facade();
 		countriesNames = facade.getCountries();
+		System.out.println("countriesNames: "+countriesNames);
 
 		//Load all countries into drop down menu
-		countriesNames.sort(null);
+		//countriesNames.sort(countriesNames);
 		JComboBox<String> countriesList = new JComboBox<String>(countriesNames);
 
 		//Dates
@@ -335,19 +338,28 @@ public class MainUI extends JFrame {
 				int selectedLastYear = Integer.parseInt(endYear);
 				int selectedInitialYear = Integer.parseInt(fromYear);
 
+				String selectedCountry = (String) countriesList.getSelectedItem();
+
 				//todo: Check if analysis is available for the year
 				if (selectedInitialYear > selectedLastYear){
 					JOptionPane.showMessageDialog(frame, "The starting year cannot be greater than the ending year");
 				}
+				else if (facade.getNonFetchableCountries().contains(selectedCountry)){
+					JOptionPane.showMessageDialog(frame, "Cannot fetch data for this country");
+				}
 				else {
 
-					//Get the selected country from the user
-					String selectedCountry = (String) countriesList.getSelectedItem();
 					//Get the selected analysis from the user
 					String selectedAnalysis = (String) methodsList.getSelectedItem();
 
 					//Here we use the observer pattern to update all the user selections
-					observer.update(selectedInitialYear, selectedLastYear, selectedCountry, selectedAnalysis, userSelectedGraphs, graphController, west);
+					try {
+						observer.update(selectedInitialYear, selectedLastYear, selectedCountry, selectedAnalysis, userSelectedGraphs, graphController, west);
+					} catch (FileNotFoundException fileNotFoundException) {
+						fileNotFoundException.printStackTrace();
+					} catch (JSONException jsonException) {
+						jsonException.printStackTrace();
+					}
 				}
 
 				west.revalidate();

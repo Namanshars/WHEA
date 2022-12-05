@@ -16,10 +16,10 @@ public class AnalysisSix extends AnalysisStrategy{
     @Override
     public Map<String, WBData> analyse(FilterCriteria filterCriteria) {
         //get the data based on FilterCriteria - country and year range
-        FilterCriteria fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear(), filterCriteria.getToYear(), AnalysisConstants.HEALTH_EXP);
+        FilterCriteria fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear() + 1, filterCriteria.getToYear(), AnalysisConstants.HEALTH_EXP);
         WBData dataOne = getFilterWBData(fc);
 
-        fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear(), filterCriteria.getToYear(),  AnalysisConstants.HOSPITAL_BEDS);
+        fc = new FilterCriteria(filterCriteria.getCountryId(), filterCriteria.getFromYear() + 1, filterCriteria.getToYear(),  AnalysisConstants.HOSPITAL_BEDS);
         WBData dataTwo = getFilterWBData(fc);
 
         Map<String, WBData> allDataMap = new HashMap<>();

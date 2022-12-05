@@ -1,7 +1,8 @@
 package com.yorku.wbapp.model;
 
 
-import java.util.Objects;
+import java.io.InputStream;
+
 //Class is used to define a single record of data
 //A record consists of countryID, indicator, year, indicator value
 public class WBDataRecord implements Comparable<WBDataRecord>{
@@ -75,5 +76,9 @@ public class WBDataRecord implements Comparable<WBDataRecord>{
     @Override
     public int compareTo(WBDataRecord o) {
         return Integer.compare(getYear(), o.getYear());
+    }
+
+    public String toString(InputStream countriesFile, String s) {
+        return s;
     }
 }
