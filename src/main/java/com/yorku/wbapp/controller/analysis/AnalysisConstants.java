@@ -26,7 +26,7 @@ public class AnalysisConstants {
     final public static String HEALTH_EXP = "SH.XPD.CHEX.GD.ZS";
     final public static String GDP_CAPITA = "NY.GDP.PCAP.CD";
 
-    final public static String PROBLEMS_ACCESSING = "SH.ACS.WHER.Q3.ZS";
+    final public static String PROBLEMS_ACCESSING = "SH.ACS.MONY.Q1.ZS";
     final public static String MORTALITY_INFANTS = "SH.DYN.MORT.Q3";
 
     public static final String ANNUAL_PERCENT_CHANGE = "ANNUAL_PERCENT_CHANGE";

@@ -67,10 +67,6 @@ public class TestClass {
 
         JSONParser jsonParser = new JSONParser();
         WBData wbData = jsonParser.getParsedData(jsonString, fc);
-        double analysisValue2017;
-        double analysisValue2018;
-        double analysisValue2019;
-        double analysisValue2020;
         for (WBDataRecord record: wbData.getRecords()){
             assertEquals(record.getCountryId(), "IND");
             System.out.println("JSONParser COUNTRY: "+record.getCountryId()+ " YEAR: "+record.getYear()+" VALUE: "+record.getAnalysisValue());
@@ -92,7 +88,7 @@ public class TestClass {
     }
 
     @Test
-    public void testAnnualPercentageChangeAnalysis(){
+    public void testAnalysisOne(){
         FilterCriteria filterCriteria = new FilterCriteria("IND", 2013, 2014, null);
         String analysisName = AnalysisConstants.ANALYSIS_ONE;
 
@@ -135,7 +131,41 @@ public class TestClass {
     }
 
     @Test
-    public void testRatioAnalysis(){
+    public void testAnalysisTwo(){
+        FilterCriteria filterCriteria = new FilterCriteria("IND", 2013, 2014, null);
+        String analysisName = AnalysisConstants.ANALYSIS_TWO;
+
+
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysisName);
+        System.out.println(analysisName+" strategy: "+strategy);
+        //perform the analysis
+        Map<String, WBData> analyzedDataMap = strategy.analyse(filterCriteria);
+        WBData forestData = analyzedDataMap.get(AnalysisConstants.FOREST_AREA);
+        WBData pollutionData = analyzedDataMap.get(AnalysisConstants.PM25_AIR_POLLUTION);
+
+        for (WBDataRecord record : forestData.getRecords()){
+            if (record.getYear() == 2013){
+                assert(record.getAnalysisValue() == ((23.6430231502191 - 23.5534224183453) / 23.5534224183453) * 100);
+            }
+            if (record.getYear() == 2014){
+                assert(record.getAnalysisValue() == ((23.732623882093 - 23.6430231502191) / 23.6430231502191) * 100);
+            }
+        }
+        for (WBDataRecord record : pollutionData.getRecords()){
+            if (record.getYear() == 2013){
+                assert(record.getAnalysisValue() == ((91.8047916056206 - 88.1694405971172) / 88.1694405971172) * 100);
+            }
+            if (record.getYear() == 2014){
+                assert(record.getAnalysisValue() == ((89.6223826850868 - 91.8047916056206) / 91.8047916056206) * 100);
+            }
+        }
+        System.out.println("analyzed map = " + analyzedDataMap);
+
+    }
+
+    @Test
+    public void testAnalysisThree(){
         FilterCriteria filterCriteria = new FilterCriteria("IND", 2013, 2014, null);
         String analysisName = AnalysisConstants.ANALYSIS_THREE;
 
@@ -160,12 +190,10 @@ public class TestClass {
                 }
             }
         }
-
-
     }
 
     @Test
-    public void testAverageAnalysis(){
+    public void testAnalysisFour(){
         FilterCriteria filterCriteria = new FilterCriteria("IND", 2013, 2014, null);
         String analysisName = AnalysisConstants.ANALYSIS_FOUR;
 
@@ -179,4 +207,108 @@ public class TestClass {
             assert(record.getAnalysisValue() == ((23.6430231502191 + 23.732623882093) / 2));
         }
     }
+    @Test
+    public void testAnalysisFive(){
+        FilterCriteria filterCriteria = new FilterCriteria("IND", 2012, 2013, null);
+        String analysisName = AnalysisConstants.ANALYSIS_FIVE;
+
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysisName);
+
+        Map<String, WBData> analyzedDataMap = strategy.analyse(filterCriteria);
+        WBData forestData = analyzedDataMap.get(AnalysisConstants.GOVT_EXPENDITURE);
+
+        for (WBDataRecord record : forestData.getRecords()){
+            assert(record.getAnalysisValue() == ((14.0501804351807 + 13.9921197891235) / 2));
+        }
+    }
+
+    @Test
+    public void testAnalysisSix(){
+        FilterCriteria filterCriteria = new FilterCriteria("IND", 2013, 2014, null);
+        String analysisName = AnalysisConstants.ANALYSIS_SIX;
+
+
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysisName);
+
+        //perform the analysis
+        Map<String, WBData> analyzedDataMap = strategy.analyse(filterCriteria);
+        WBData healthData = analyzedDataMap.get(AnalysisConstants.HEALTH_EXP);
+        WBData hospitalData = analyzedDataMap.get(AnalysisConstants.HOSPITAL_BEDS);
+
+        for (String key : analyzedDataMap.keySet()){
+            WBData wbData = analyzedDataMap.get(key);
+
+            for (WBDataRecord record : wbData.getRecords()){
+                if (record.getYear() == 2014){
+                    assert(record.getAnalysisValue() == (3.61956549 / 0.52));
+                }
+                else if (record.getYear() == 2013){
+                    assert((record.getAnalysisValue() == 3.74944162 / 0.49));
+                }
+            }
+        }
+    }
+    @Test
+    public void testAnalysisSeven(){
+        FilterCriteria filterCriteria = new FilterCriteria("IND", 2016, 2016, null);
+        String analysisName = AnalysisConstants.ANALYSIS_SEVEN;
+
+
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysisName);
+        System.out.println(analysisName+" strategy: "+strategy);
+        //perform the analysis
+        Map<String, WBData> analyzedDataMap = strategy.analyse(filterCriteria);
+        WBData problemAccessingData = analyzedDataMap.get(AnalysisConstants.PROBLEMS_ACCESSING);
+        WBData mortalityData = analyzedDataMap.get(AnalysisConstants.MORTALITY_INFANTS);
+
+        for (WBDataRecord record : mortalityData.getRecords()){
+            if (record.getYear() == 2016){
+                assert(record.getAnalysisValue() == 47);
+            }
+        }
+        for (WBDataRecord record : problemAccessingData.getRecords()){
+            if (record.getYear() == 2016){
+                assert(record.getAnalysisValue() == 44.4);
+            }
+        }
+        System.out.println("analyzed map = " + analyzedDataMap);
+
+    }
+    @Test
+    public void testAnalysisEight(){
+        FilterCriteria filterCriteria = new FilterCriteria("IND", 2012, 2013, null);
+        String analysisName = AnalysisConstants.ANALYSIS_EIGHT;
+
+
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysisName);
+        System.out.println(analysisName+" strategy: "+strategy);
+        //perform the analysis
+        Map<String, WBData> analyzedDataMap = strategy.analyse(filterCriteria);
+        WBData govtData = analyzedDataMap.get(AnalysisConstants.GOVT_EXPENDITURE);
+        WBData healthData = analyzedDataMap.get(AnalysisConstants.HEALTH_EXP);
+
+        for (WBDataRecord record : healthData.getRecords()){
+            if (record.getYear() == 2012){
+                assert(record.getAnalysisValue() == ((3.32935309 - 3.24634194) / 3.24634194) * 100);
+            }
+            if (record.getYear() == 2013){
+                assert(record.getAnalysisValue() == ((3.74944162 - 3.32935309) / 3.32935309) * 100);
+            }
+        }
+        for (WBDataRecord record : govtData.getRecords()){
+            if (record.getYear() == 2012){
+                assert(record.getAnalysisValue() == ((13.9921197891235 - 13.5649099349976) / 13.5649099349976) * 100);
+            }
+            if (record.getYear() == 2013){
+                assert(record.getAnalysisValue() == ((14.0501804351807 - 13.9921197891235) / 13.9921197891235) * 100);
+            }
+        }
+        System.out.println("analyzed map = " + analyzedDataMap);
+
+    }
+
 }
