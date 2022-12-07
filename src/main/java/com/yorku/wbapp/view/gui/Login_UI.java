@@ -4,18 +4,14 @@
  */
 package com.yorku.wbapp.view.gui;
 
-import java.io.FileNotFoundException;
-import java.sql.*;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
 import org.json.JSONException;
-import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
-import java.io.FileReader;
-import java.io.FileWriter;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 /**
  *
