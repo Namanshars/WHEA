@@ -1,18 +1,26 @@
 package com.yorku.wbapp.controller.analysis.analysisImplementation;
 
+import com.yorku.wbapp.controller.Facade;
+import com.yorku.wbapp.controller.FacadeIF;
+import com.yorku.wbapp.controller.GraphController;
+import com.yorku.wbapp.controller.GraphControllerIF;
 import com.yorku.wbapp.controller.analysis.AnalysisConstants;
 import com.yorku.wbapp.controller.analysis.AnalysisFactory;
 import com.yorku.wbapp.controller.analysis.AnalysisStrategy;
 import com.yorku.wbapp.controller.datainteraction.JSONParser;
 import com.yorku.wbapp.controller.datainteraction.RestApiClient;
+import com.yorku.wbapp.model.Country;
 import com.yorku.wbapp.model.FilterCriteria;
 import com.yorku.wbapp.model.WBData;
 import com.yorku.wbapp.model.WBDataRecord;
+import com.yorku.wbapp.view.visualizer.VisualConstants;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -27,36 +35,292 @@ public class TestClass {
     public void setUp() throws Exception {
         System.out.println("before");
     }
-
-    /*
     @Test
-    public void testFindMax(){
-        System.out.println("test case find max");
-        assertEquals(4, Calculation.findMax(new int[]{1,3,4,2}));
-        assertEquals(-2,Calculation.findMax(new int[]{-12,-3,-4,-2}));
+    public void countryFetcherOne(){
+        FacadeIF facade = new Facade();
+        Country country = new Country("IN", "India", "IND");
+        boolean flag = false;
+
+        if (facade.getNonFetchableCountries().contains(country.getCountryId())){
+            flag = true;
+        }
+        assert !flag;
+
+    }
+
+    @Test
+    public void countryFetcherTwo(){
+        FacadeIF facade = new Facade();
+        Country country = new Country("CA", "Canada", "CAN");
+        boolean flag = false;
+
+        if (facade.getNonFetchableCountries().contains(country.getCountryId())){
+            flag = true;
+        }
+        assert !flag;
+
     }
     @Test
-    public void testCube(){
-        System.out.println("test case cube");
-        assertEquals(27,Calculation.cube(3));
+    public void countryFetcherThree(){
+        FacadeIF facade = new Facade();
+        Country country = new Country("NZ", "New Zealand", "NZL");
+        boolean flag = false;
+
+        if (facade.getNonFetchableCountries().contains(country.getCountryId())){
+            flag = true;
+        }
+        assert flag;
+
     }
     @Test
-    public void testReverseWord(){
-        System.out.println("test case reverse word");
-        assertEquals("ym eman si nahk",Calculation.reverseWord("my name is khan"));
+    public void countryFetcherFour(){
+        FacadeIF facade = new Facade();
+        Country country = new Country("NO", "Norway", "NOR");
+        boolean flag = false;
+
+        if (facade.getNonFetchableCountries().contains(country.getCountryId())){
+            flag = true;
+        }
+        assert flag;
+
     }
 
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("after");
+    @Test
+    public void countryFetcherFive(){
+        FacadeIF facade = new Facade();
+        Country country = new Country("NO", "Norway", "NOR");
+        boolean flag = false;
+
+        if (facade.getCountries().contains(country.getCountryId())){
+            flag = true;
+        }
+        assert flag;
+
     }
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-        System.out.println("after class");
+    @Test
+    public void countryFetcherSix(){
+        FacadeIF facade = new Facade();
+        Country country = new Country("**", "DOES NOT EXIST", "N/A");
+        boolean flag = false;
+
+        if (facade.getCountries().contains(country.getCountryId())){
+            flag = true;
+        }
+        assert !flag;
+
     }
 
-     */
+    @Test
+    public void analysisFactoryTestOne(){
+        String analysis = AnalysisConstants.ANALYSIS_ONE;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisOne@6fdb1f78"));
+
+    }
+
+    @Test
+    public void analysisFactoryTestTwo(){
+        String analysis = AnalysisConstants.ANALYSIS_TWO;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisTwo@6fdb1f78"));
+
+    }
+
+    @Test
+    public void analysisFactoryTestThree(){
+        String analysis = AnalysisConstants.ANALYSIS_THREE;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisThree@6fdb1f78"));
+
+    }
+
+    @Test
+    public void analysisFactoryTestFour(){
+        String analysis = AnalysisConstants.ANALYSIS_FOUR;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisFour@6fdb1f78"));
+
+    }
+    @Test
+    public void analysisFactoryTestFive(){
+        String analysis = AnalysisConstants.ANALYSIS_FIVE;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisFive@6fdb1f78"));
+
+    }
+
+    @Test
+    public void analysisFactoryTestSix(){
+        String analysis = AnalysisConstants.ANALYSIS_SIX;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisSix@6fdb1f78"));
+
+    }
+
+    @Test
+    public void analysisFactoryTestSeven(){
+        String analysis = AnalysisConstants.ANALYSIS_SEVEN;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisSeven@6fdb1f78"));
+
+    }
+
+    @Test
+    public void analysisFactoryTestEight(){
+        String analysis = AnalysisConstants.ANALYSIS_EIGHT;
+        AnalysisFactory factory = new AnalysisFactory();
+        AnalysisStrategy strategy = factory.loadAnalysis(analysis);
+        System.out.println(strategy.toString());
+        assert(strategy.toString().equals("com.yorku.wbapp.controller.analysis.analysisImplementation.AnalysisEight@6fdb1f78"));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisOne(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.BAR);
+        suitableGraphs.add(VisualConstants.LINE);
+        suitableGraphs.add(VisualConstants.SCATTER);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_ONE);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisTwo(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.BAR);
+        suitableGraphs.add(VisualConstants.LINE);
+        suitableGraphs.add(VisualConstants.SCATTER);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_TWO);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisThree(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.BAR);
+        suitableGraphs.add(VisualConstants.LINE);
+        suitableGraphs.add(VisualConstants.SCATTER);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_THREE);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisFour(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.PIE);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_FOUR);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisFive(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.PIE);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_FIVE);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisSix(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.BAR);
+        suitableGraphs.add(VisualConstants.LINE);
+        suitableGraphs.add(VisualConstants.SCATTER);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_SIX);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisSeven(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.BAR);
+        suitableGraphs.add(VisualConstants.LINE);
+        suitableGraphs.add(VisualConstants.SCATTER);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_SEVEN);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
+
+    @Test
+    public void graphTesterAnalysisEight(){
+        GraphControllerIF controller = new GraphController();
+
+        List<String> suitableGraphs = new ArrayList<>();
+
+        suitableGraphs.add(VisualConstants.BAR);
+        suitableGraphs.add(VisualConstants.LINE);
+        suitableGraphs.add(VisualConstants.SCATTER);
+        suitableGraphs.add(VisualConstants.REPORT);
+
+        List<String> returnedGraphs = controller.getSuitableGraphs(AnalysisConstants.ANALYSIS_EIGHT);
+
+        assert(suitableGraphs.equals(returnedGraphs));
+
+    }
 
     @Test
     public void testParser() throws IOException {

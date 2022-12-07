@@ -7,11 +7,10 @@ public class Country {
     String countryISO3Code;
     boolean fetchable;
 
-    public Country(String countryId, String countryValue, String countryISO3Code, boolean fetchable) {
+    public Country(String countryId, String countryValue, String countryISO3Code) {
         this.countryId = countryId;
         this.countryValue = countryValue;
         this.countryISO3Code = countryISO3Code;
-        this.fetchable = fetchable;
     }
     public Country(String countryValue, String countryId){
         this.countryId = countryId;
